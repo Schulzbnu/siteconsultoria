@@ -108,7 +108,7 @@ function Hero() {
           >
             <motion.div variants={fadeUp} className="mb-6">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                <Star className="w-4 h-4" />
+                <Zap className="w-4 h-4" />
                 Consultoria Digital Premiada no Brasil
               </span>
             </motion.div>
@@ -406,7 +406,7 @@ function EntregaveisSection() {
   const deliverables = [
     { icon: BarChart3, title: "Relatório executivo de 30+ páginas" },
     { icon: Target, title: "Análise de gaps e oportunidades" },
-    { icon: TrendingUp, title: "Roadmap estratégico de 90 dias" },
+    { icon: Lightbulb, title: "Roadmap estratégico de 90 dias" },
     { icon: Users, title: "Matriz de priorização" },
     { icon: Zap, title: "Benchmarks do mercado" },
     { icon: Shield, title: "Recomendações de tecnologia" }
