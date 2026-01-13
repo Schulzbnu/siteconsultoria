@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "name": "Diagnostico360 Brand System",
+    "version": "1.0.0",
+    "description": "Design tokens + UI rules for a clean, executive site (Next.js on Vercel).",
+    "source": "Brand palette provided by user",
+    "updatedAt": "2026-01-12"
+  },
+  "brand": {
+    "colors": {
+      "primary": {
+        "500": "#0066CC",
+        "600": "#005BB8",
+        "700": "#004C99",
+        "contrastText": "#FFFFFF"
+      },
+      "neutral": {
+        "950": "#1D1D1F",
+        "900": "#2A2A2D",
+        "800": "#3A3A3F",
+        "700": "#4A4A50",
+        "600": "#5B5B62",
+        "500": "#6D6D75",
+        "400": "#8A8A93",
+        "300": "#A9A9B2",
+        "200": "#C9C9D2",
+        "150": "#E1E1E8",
+        "100": "#F5F5F7",
+        "0": "#FFFFFF"
+      },
+      "semantic": {
+        "background": "#FFFFFF",
+        "surface": "#FFFFFF",
+        "surfaceAlt": "#F5F5F7",
+        "text": "#1D1D1F",
+        "textMuted": "#6D6D75",
+        "border": "#E1E1E8",
+        "focusRing": "#0066CC"
+      },
+      "states": {
+        "info": "#0066CC",
+        "success": "#1E8E3E",
+        "warning": "#B15E00",
+        "danger": "#C62828"
+      }
+    }
+  },
+  "typography": {
+    "fontFamilies": {
+      "sans": "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, \"Helvetica Neue\", sans-serif",
+      "mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+    },
+    "scale": {
+      "h1": { "fontSize": "48px", "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": 700 },
+      "h2": { "fontSize": "36px", "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": 700 },
+      "h3": { "fontSize": "28px", "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": 650 },
+      "h4": { "fontSize": "22px", "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": 650 },
+      "bodyLg": { "fontSize": "18px", "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": 450 },
+      "body": { "fontSize": "16px", "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": 450 },
+      "bodySm": { "fontSize": "14px", "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": 450 },
+      "label": { "fontSize": "14px", "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": 600 },
+      "caption": { "fontSize": "12px", "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": 500 }
+    }
+  },
+  "layout": {
+    "container": {
+      "maxWidth": "1120px",
+      "paddingX": { "mobile": "20px", "desktop": "24px" }
+    },
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px"
+    },
+    "grid": {
+      "columns": 12,
+      "gutter": "24px"
+    },
+    "sectionSpacing": {
+      "tight": "48px",
+      "default": "72px",
+      "loose": "96px"
+    }
+  },
+  "spacing": {
+    "xs": "8px",
+    "sm": "12px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "48px",
+    "3xl": "64px"
+  },
+  "radii": {
+    "sm": "10px",
+    "md": "14px",
+    "lg": "18px",
+    "xl": "24px",
+    "pill": "999px"
+  },
+  "shadows": {
+    "sm": "0 1px 2px rgba(29, 29, 31, 0.06)",
+    "md": "0 6px 20px rgba(29, 29, 31, 0.08)",
+    "lg": "0 14px 40px rgba(29, 29, 31, 0.10)"
+  },
+  "motion": {
+    "durations": { "fast": "120ms", "base": "180ms", "slow": "260ms" },
+    "easings": { "standard": "cubic-bezier(0.2, 0.8, 0.2, 1)" }
+  },
+  "components": {
+    "button": {
+      "base": {
+        "height": "44px",
+        "paddingX": "16px",
+        "radius": "pill",
+        "font": "label",
+        "transition": "background-color 180ms cubic-bezier(0.2, 0.8, 0.2, 1), color 180ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 180ms cubic-bezier(0.2, 0.8, 0.2, 1)"
+      },
+      "variants": {
+        "primary": {
+          "background": "#0066CC",
+          "text": "#FFFFFF",
+          "hoverBackground": "#005BB8",
+          "activeBackground": "#004C99",
+          "focusRing": "0 0 0 4px rgba(0, 102, 204, 0.22)"
+        },
+        "secondary": {
+          "background": "#F5F5F7",
+          "text": "#1D1D1F",
+          "hoverBackground": "#EDEDF2",
+          "activeBackground": "#E1E1E8",
+          "border": "1px solid #E1E1E8",
+          "focusRing": "0 0 0 4px rgba(0, 102, 204, 0.18)"
+        },
+        "ghost": {
+          "background": "transparent",
+          "text": "#1D1D1F",
+          "hoverBackground": "#F5F5F7",
+          "activeBackground": "#EDEDF2",
+          "focusRing": "0 0 0 4px rgba(0, 102, 204, 0.18)"
+        }
+      }
+    },
+    "card": {
+      "base": {
+        "background": "#FFFFFF",
+        "border": "1px solid #E1E1E8",
+        "radius": "xl",
+        "padding": "24px",
+        "shadow": "sm"
+      },
+      "variants": {
+        "muted": {
+          "background": "#F5F5F7",
+          "border": "1px solid #E1E1E8"
+        }
+      }
+    },
+    "input": {
+      "base": {
+        "height": "44px",
+        "radius": "lg",
+        "paddingX": "14px",
+        "background": "#FFFFFF",
+        "border": "1px solid #E1E1E8",
+        "text": "#1D1D1F",
+        "placeholder": "#8A8A93",
+        "focusBorder": "#0066CC",
+        "focusRing": "0 0 0 4px rgba(0, 102, 204, 0.18)"
+      }
+    },
+    "badge": {
+      "base": {
+        "radius": "pill",
+        "padding": "6px 10px",
+        "font": "caption"
+      },
+      "variants": {
+        "primary": { "background": "rgba(0, 102, 204, 0.12)", "text": "#0066CC" },
+        "neutral": { "background": "#F5F5F7", "text": "#1D1D1F", "border": "1px solid #E1E1E8" }
+      }
+    },
+    "link": {
+      "base": {
+        "text": "#0066CC",
+        "hoverText": "#005BB8",
+        "underline": "hover"
+      }
+    }
+  },
+  "content": {
+    "tone": "Executive, clear, direct. No buzzwords, no exagero de IA. Foco em decisão, prioridade e resultado.",
+    "cta": {
+      "primary": "Agendar conversa",
+      "secondary": "Solicitar Diagnóstico"
+    }
+  },
+  "pages": {
+    "home": {
+      "sections": [
+        "Hero",
+        "Problemas comuns",
+        "O que é o Diagnóstico 360",
+        "Como funciona",
+        "Entregáveis",
+        "Para quem é / não é",
+        "Sobre",
+        "CTA final"
+      ]
+    },
+    "services": { "sections": ["Diagnóstico 360", "Advisory (pós-diagnóstico)", "Workshops (opcional)"] },
+    "cases": { "sections": ["Resultados típicos", "Exemplos de achados", "Depoimentos"] },
+    "contact": { "sections": ["Formulário", "WhatsApp", "E-mail", "Calendly"] }
+  },
+  "seo": {
+    "defaults": {
+      "titleTemplate": "%s | Diagnóstico 360",
+      "defaultTitle": "Diagnóstico 360 para empresas — clareza, prioridades e resultado",
+      "defaultDescription": "Avaliação completa de presença digital, processos, tecnologia e operação. Entrego um plano de ação e prioridades em 90 dias — sem executar, sem vender ferramenta.",
+      "og": {
+        "type": "website",
+        "locale": "pt_BR"
+      }
+    },
+    "technical": {
+      "sitemap": true,
+      "robotsTxt": true,
+      "canonical": true,
+      "openGraph": true,
+      "jsonLd": {
+        "type": "ProfessionalService",
+        "name": "Diagnóstico 360",
+        "areaServed": "BR"
+      }
+    }
+  },
+  "accessibility": {
+    "minContrast": "WCAG AA",
+    "focusVisible": true,
+    "tapTargets": ">=44px"
+  }
+}
