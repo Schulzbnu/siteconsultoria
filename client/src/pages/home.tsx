@@ -9,14 +9,12 @@ import {
   Users,
   Zap,
   Shield,
-  TrendingUp,
   MessageSquare,
   Phone,
   Mail,
   MapPin,
   Menu,
   X,
-  Star,
   Building2,
   Lightbulb,
   Clock
@@ -51,7 +49,6 @@ function Header() {
             <a href="#servicos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-servicos">Serviços</a>
             <a href="#como-funciona" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-como-funciona">Como Funciona</a>
             <a href="#sobre" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-sobre">Sobre</a>
-            <a href="#depoimentos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-depoimentos">Depoimentos</a>
             <a href="#contato" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-contato">Contato</a>
           </div>
 
@@ -85,7 +82,6 @@ function Header() {
               <a href="#servicos" className="text-sm font-medium py-2" data-testid="mobile-nav-servicos">Serviços</a>
               <a href="#como-funciona" className="text-sm font-medium py-2" data-testid="mobile-nav-como-funciona">Como Funciona</a>
               <a href="#sobre" className="text-sm font-medium py-2" data-testid="mobile-nav-sobre">Sobre</a>
-              <a href="#depoimentos" className="text-sm font-medium py-2" data-testid="mobile-nav-depoimentos">Depoimentos</a>
               <a href="#contato" className="text-sm font-medium py-2" data-testid="mobile-nav-contato">Contato</a>
               <Button className="rounded-full w-full mt-2" data-testid="mobile-cta-agendar">
                 Agendar conversa
@@ -143,16 +139,6 @@ function Hero() {
               </Button>
             </motion.div>
 
-            <motion.div variants={fadeUp}>
-              <p className="text-sm text-muted-foreground mb-4">Empresas que confiam na KYNEXT:</p>
-              <div className="flex flex-wrap items-center gap-6 opacity-60">
-                <span className="font-semibold text-lg text-foreground">Petrobras</span>
-                <span className="font-semibold text-lg text-foreground">Itaú</span>
-                <span className="font-semibold text-lg text-foreground">Natura</span>
-                <span className="font-semibold text-lg text-foreground">Ambev</span>
-                <span className="font-semibold text-lg text-foreground">Magazine Luiza</span>
-              </div>
-            </motion.div>
           </motion.div>
 
           <motion.div 
@@ -170,38 +156,6 @@ function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-lg border border-border/50"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-foreground">+400</p>
-                  <p className="text-sm text-muted-foreground">empresas atendidas</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-lg border border-border/50"
-            >
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-primary/20 border-2 border-white" />
-                  <div className="w-8 h-8 rounded-full bg-green-200 border-2 border-white" />
-                  <div className="w-8 h-8 rounded-full bg-amber-200 border-2 border-white" />
-                </div>
-                <span className="text-sm font-medium text-foreground">98% satisfação</span>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
 
@@ -645,16 +599,16 @@ function SobreSection() {
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-8">
               <div>
-                <p className="text-3xl font-bold text-primary">400+</p>
-                <p className="text-sm text-muted-foreground">Empresas atendidas</p>
+                <p className="text-3xl font-bold text-primary">15+</p>
+                <p className="text-sm text-muted-foreground">Anos de experiência</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary">98%</p>
-                <p className="text-sm text-muted-foreground">Satisfação dos clientes</p>
+                <p className="text-3xl font-bold text-primary">360°</p>
+                <p className="text-sm text-muted-foreground">Diagnóstico completo</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary">R$ 2B+</p>
-                <p className="text-sm text-muted-foreground">Em receita impactada</p>
+                <p className="text-3xl font-bold text-primary">90 dias</p>
+                <p className="text-sm text-muted-foreground">Plano de ação</p>
               </div>
             </motion.div>
           </motion.div>
@@ -664,83 +618,6 @@ function SobreSection() {
   );
 }
 
-function DepoimentosSection() {
-  const testimonials = [
-    {
-      quote: "O diagnóstico da KYNEXT mudou completamente nossa visão sobre transformação digital. Finalmente temos clareza sobre onde investir.",
-      author: "Maria Santos",
-      role: "CEO, TechBrasil",
-      avatar: "M"
-    },
-    {
-      quote: "Profissionais sérios que entregam o que prometem. O roadmap de 90 dias foi essencial para priorizarmos nossas iniciativas.",
-      author: "Carlos Mendes",
-      role: "Diretor de Operações, Varejo+",
-      avatar: "C"
-    },
-    {
-      quote: "Diferente de outras consultorias, a KYNEXT não tentou nos vender ferramentas. Focaram em entender nosso negócio e entregar soluções reais.",
-      author: "Ana Oliveira",
-      role: "CFO, Grupo Construir",
-      avatar: "A"
-    }
-  ];
-
-  return (
-    <section id="depoimentos" className="py-20 lg:py-28 bg-muted/30">
-      <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={stagger}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-            Depoimentos
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            O que nossos clientes dizem
-          </motion.h2>
-        </motion.div>
-
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={stagger}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {testimonials.map((testimonial, index) => (
-            <motion.div 
-              key={index}
-              variants={fadeUp}
-              className="bg-white rounded-2xl p-8 border border-border/50 shadow-sm"
-            >
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <p className="text-muted-foreground leading-relaxed mb-6 italic">
-                "{testimonial.quote}"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold">
-                  {testimonial.avatar}
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 function CTASection() {
   return (
@@ -934,7 +811,6 @@ export default function Home() {
         <EntregaveisSection />
         <ParaQuemSection />
         <SobreSection />
-        <DepoimentosSection />
         <CTASection />
         <ContatoSection />
       </main>
