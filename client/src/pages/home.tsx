@@ -41,7 +41,7 @@ function Header() {
           <a href="/" className="flex items-center gap-3" data-testid="logo-link">
             <img
               src="/logo.png"
-              alt="Logomarca da KYNEXT"
+              alt="Logomarca da Schulz Estratégia Digital"
               className="w-28 lg:w-32 h-auto object-contain"
             />            
           </a>
@@ -284,7 +284,7 @@ function ServicosSection() {
             Nossos Serviços
           </motion.span>
           <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Como a KYNEXT pode ajudar sua empresa
+            Como vamos gerar crescimento real para sua empresa
           </motion.h2>
           <motion.p variants={fadeUp} className="text-lg text-muted-foreground">
             Soluções completas de consultoria digital para empresas que buscam resultados reais.
@@ -496,7 +496,7 @@ function ParaQuemSection() {
             Para quem é
           </motion.span>
           <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            A KYNEXT é para sua empresa?
+            Nossa abordagem faz sentido para sua empresa?
           </motion.h2>
         </motion.div>
 
@@ -583,13 +583,13 @@ function SobreSection() {
             variants={stagger}
           >
             <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              Sobre a KYNEXT
+              Sobre nós
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               Consultoria digital que entrega resultados, não promessas
             </motion.h2>
             <motion.p variants={fadeUp} className="text-lg text-muted-foreground leading-relaxed mb-6">
-              A KYNEXT nasceu da experiência de profissionais que passaram por grandes empresas 
+              A Schulz Estratégia Digital nasceu da experiência de profissionais que passaram por grandes empresas 
               de tecnologia e consultoria. Sabemos que o mercado está cheio de "soluções milagrosas" 
               e promessas vazias.
             </motion.p>
@@ -696,7 +696,7 @@ function ContatoSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">E-mail</p>
-                  <p className="font-medium text-foreground">contato@kynext.com.br</p>
+                  <p className="font-medium text-foreground">contato@email.com.br</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -780,7 +780,7 @@ function Footer() {
           <div className="flex items-center gap-3">
             <img
               src="/logo.png"
-              alt="Logomarca da KYNEXT"
+              alt="Logomarca da Schulz Estratégia Digital"
               className="w-24 h-auto object-contain opacity-90"
             />            
           </div>
@@ -793,7 +793,7 @@ function Footer() {
           </div>
 
           <p className="text-sm text-muted-foreground">
-            © 2026 KYNEXT. Todos os direitos reservados.
+            © 2026 Schulz Estratégia Digital. Todos os direitos reservados.
           </p>
         </div>
       </div>
