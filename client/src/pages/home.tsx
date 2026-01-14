@@ -43,8 +43,7 @@ function Header() {
               src="/logo.png"
               alt="Logomarca da KYNEXT"
               className="w-9 h-9 object-contain"
-            />
-            <span className="font-bold text-xl tracking-tight text-foreground">KYNEXT</span>
+            />            
           </a>
 
           <div className="hidden lg:flex items-center gap-8">
@@ -783,8 +782,7 @@ function Footer() {
               src="/logo.png"
               alt="Logomarca da KYNEXT"
               className="w-8 h-8 object-contain"
-            />
-            <span className="font-bold text-lg tracking-tight text-foreground">KYNEXT</span>
+            />            
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
