@@ -42,7 +42,7 @@ function Header() {
             <img
               src="/logo.png"
               alt="Logomarca da Schulz Estratégia Digital"
-              className="w-28 lg:w-32 h-auto object-contain"
+              className="w-26 lg:w-30 h-auto object-contain"
             />            
           </a>
 
@@ -110,7 +110,7 @@ function Hero() {
             <motion.div variants={fadeUp} className="mb-6">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
                 <Zap className="w-4 h-4" />
-                Consultoria Digital Premiada no Brasil
+                Dados, tecnologia e crescimento
               </span>
             </motion.div>
 
