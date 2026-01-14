@@ -38,10 +38,12 @@ function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
       <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
         <nav className="flex items-center justify-between h-16 lg:h-20">
-          <a href="/" className="flex items-center gap-2" data-testid="logo-link">
-            <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">
-              <span className="text-white font-bold text-lg">K</span>
-            </div>
+          <a href="/" className="flex items-center gap-3" data-testid="logo-link">
+            <img
+              src="/logo.png"
+              alt="Logomarca da KYNEXT"
+              className="w-9 h-9 object-contain"
+            />
             <span className="font-bold text-xl tracking-tight text-foreground">KYNEXT</span>
           </a>
 
@@ -776,10 +778,12 @@ function Footer() {
     <footer className="py-12 border-t border-border">
       <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-white font-bold">K</span>
-            </div>
+          <div className="flex items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="Logomarca da KYNEXT"
+              className="w-8 h-8 object-contain"
+            />
             <span className="font-bold text-lg tracking-tight text-foreground">KYNEXT</span>
           </div>
 
