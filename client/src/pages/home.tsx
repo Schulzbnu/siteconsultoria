@@ -42,7 +42,7 @@ function Header() {
             <img
               src="/logo.png"
               alt="Logomarca da KYNEXT"
-              className="w-36 lg:w-44 h-auto object-contain"
+              className="w-28 lg:w-32 h-auto object-contain"
             />            
           </a>
 
@@ -781,7 +781,7 @@ function Footer() {
             <img
               src="/logo.png"
               alt="Logomarca da KYNEXT"
-              className="w-36 lg:w-44 h-auto object-contain"
+              className="w-24 h-auto object-contain opacity-90"
             />            
           </div>
 
