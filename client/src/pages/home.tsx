@@ -143,8 +143,8 @@ function Hero() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
@@ -552,8 +552,8 @@ function SobreSection() {
       <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div 
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="relative"
@@ -563,7 +563,7 @@ function SobreSection() {
                 <Building2 className="w-24 h-24 text-primary" />
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-lg border border-border/50">
+            <div className="absolute -bottom-6 right-0 lg:-right-6 bg-white rounded-2xl p-6 shadow-lg border border-border/50">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Clock className="w-6 h-6 text-primary" />
@@ -712,8 +712,8 @@ function ContatoSection() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="bg-white rounded-2xl p-8 shadow-lg border border-border/50"
