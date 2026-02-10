@@ -49,6 +49,7 @@ function Header() {
             <a href="#servicos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-servicos">Serviços</a>
             <a href="#como-funciona" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-como-funciona">Como Funciona</a>
             <a href="#sobre" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-sobre">Sobre</a>
+            <a href="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-blog">Blog</a>
             <a href="#contato" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-contato">Contato</a>
           </div>
 
@@ -82,6 +83,7 @@ function Header() {
               <a href="#servicos" className="text-sm font-medium py-2" data-testid="mobile-nav-servicos">Serviços</a>
               <a href="#como-funciona" className="text-sm font-medium py-2" data-testid="mobile-nav-como-funciona">Como Funciona</a>
               <a href="#sobre" className="text-sm font-medium py-2" data-testid="mobile-nav-sobre">Sobre</a>
+              <a href="/blog" className="text-sm font-medium py-2" data-testid="mobile-nav-blog">Blog</a>
               <a href="#contato" className="text-sm font-medium py-2" data-testid="mobile-nav-contato">Contato</a>
               <Button className="rounded-full w-full mt-2" data-testid="mobile-cta-agendar">
                 Agendar conversa
@@ -791,6 +793,7 @@ function Footer() {
             <a href="#servicos" className="hover:text-foreground transition-colors">Serviços</a>
             <a href="#como-funciona" className="hover:text-foreground transition-colors">Como Funciona</a>
             <a href="#sobre" className="hover:text-foreground transition-colors">Sobre</a>
+            <a href="/blog" className="hover:text-foreground transition-colors">Blog</a>
             <a href="#contato" className="hover:text-foreground transition-colors">Contato</a>
           </div>
 
