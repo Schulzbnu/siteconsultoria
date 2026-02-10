@@ -15,7 +15,6 @@ import {
   MapPin,
   Menu,
   X,
-  Building2,
   Lightbulb,
   Clock
 } from "lucide-react";
@@ -558,10 +557,13 @@ function SobreSection() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-              <div className="w-48 h-48 rounded-full bg-primary/10 flex items-center justify-center">
-                <Building2 className="w-24 h-24 text-primary" />
-              </div>
+            <div className="aspect-square rounded-3xl overflow-hidden shadow-xl border border-border/50">
+              <img
+                src={heroImage}
+                alt="Equipe da Schulz Estratégia Digital em reunião de consultoria"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
             </div>
             <div className="absolute -bottom-6 right-0 lg:-right-6 bg-white rounded-2xl p-6 shadow-lg border border-border/50">
               <div className="flex items-center gap-4">
