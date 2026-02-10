@@ -133,12 +133,8 @@ function Hero() {
               Entregamos um plano de ação claro com prioridades — sem complicação, com resultados.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-10">
-              <Button size="lg" className="rounded-full px-8 h-12 text-base" data-testid="cta-solicitar-diagnostico">
-                Solicitar Diagnóstico
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-8 h-12 text-base" data-testid="cta-agendar-conversa">
+            <motion.div variants={fadeUp} className="mb-10">
+              <Button asChild size="lg" className="rounded-full px-8 h-12 text-base" data-testid="cta-agendar-conversa">
                 <a href={whatsappLink} target="_blank" rel="noreferrer">Agendar Conversa</a>
               </Button>
             </motion.div>
@@ -436,12 +432,6 @@ function EntregaveisSection() {
               Um diagnóstico completo com visão 360° da sua empresa, identificando exatamente onde 
               investir tempo e recursos para maximizar resultados.
             </motion.p>
-            <motion.div variants={fadeUp}>
-              <Button size="lg" className="rounded-full px-8" data-testid="cta-conhecer-detalhes">
-                Conhecer detalhes
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </motion.div>
           </motion.div>
 
           <motion.div 
