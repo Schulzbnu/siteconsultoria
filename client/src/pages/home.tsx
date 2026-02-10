@@ -29,7 +29,8 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } }
 };
 
-const whatsappLink = "https://wa.me/554797042590";
+const whatsappMessage = "Olá, vim do site e gostaria de agendar uma conversa.";
+const whatsappLink = `https://wa.me/554797042590?text=${encodeURIComponent(whatsappMessage)}`;
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
