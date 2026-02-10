@@ -462,8 +462,8 @@ function EntregaveisSection() {
 
 function ParaQuemSection() {
   const forWho = [
-    "Empresas de médio e grande porte",
-    "Negócios com faturamento acima de R$ 5M/ano",
+    "Empresas de pequeno, médio e grande porte",
+    "Negócios com faturamento acima de R$ 1M/ano",
     "Empresas em fase de expansão ou transformação",
     "Lideranças que buscam clareza estratégica"
   ];
