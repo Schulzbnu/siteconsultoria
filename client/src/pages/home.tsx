@@ -29,6 +29,8 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } }
 };
 
+const whatsappLink = "https://wa.me/554797042590";
+
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -53,11 +55,13 @@ function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Phone className="w-4 h-4" />
-              <span>+55 11 99999-9999</span>
+              <span>+55 47 9704-2590</span>
             </div>
-            <Button className="rounded-full px-6" data-testid="cta-agendar-header">
-              Agendar conversa
-              <ArrowRight className="w-4 h-4 ml-2" />
+            <Button asChild className="rounded-full px-6" data-testid="cta-agendar-header">
+              <a href={whatsappLink} target="_blank" rel="noreferrer">
+                Agendar Conversa
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
             </Button>
           </div>
 
@@ -80,9 +84,11 @@ function Header() {
               <a href="#servicos" className="text-sm font-medium py-2" data-testid="mobile-nav-servicos">Serviços</a>
               <a href="#como-funciona" className="text-sm font-medium py-2" data-testid="mobile-nav-como-funciona">Como Funciona</a>
               <a href="#contato" className="text-sm font-medium py-2" data-testid="mobile-nav-contato">Contato</a>
-              <Button className="rounded-full w-full mt-2" data-testid="mobile-cta-agendar">
-                Agendar conversa
-                <ArrowRight className="w-4 h-4 ml-2" />
+              <Button asChild className="rounded-full w-full mt-2" data-testid="mobile-cta-agendar">
+                <a href={whatsappLink} target="_blank" rel="noreferrer">
+                  Agendar Conversa
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
               </Button>
             </div>
           </motion.div>
@@ -131,8 +137,8 @@ function Hero() {
                 Solicitar Diagnóstico
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base" data-testid="cta-agendar-conversa">
-                Agendar conversa
+              <Button asChild size="lg" variant="outline" className="rounded-full px-8 h-12 text-base" data-testid="cta-agendar-conversa">
+                <a href={whatsappLink} target="_blank" rel="noreferrer">Agendar Conversa</a>
               </Button>
             </motion.div>
 
@@ -564,13 +570,17 @@ function CTASection() {
               sua empresa a alcançar resultados extraordinários.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" variant="secondary" className="rounded-full px-8 h-12 text-base bg-white text-primary hover:bg-white/90" data-testid="cta-agendar-conversa-final">
-                Agendar conversa
-                <ArrowRight className="w-5 h-5 ml-2" />
+              <Button asChild size="lg" variant="secondary" className="rounded-full px-8 h-12 text-base bg-white text-primary hover:bg-white/90" data-testid="cta-agendar-conversa-final">
+                <a href={whatsappLink} target="_blank" rel="noreferrer">
+                  Agendar Conversa
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base border-white/30 text-white hover:bg-white/10" data-testid="cta-whatsapp">
-                <MessageSquare className="w-5 h-5 mr-2" />
-                WhatsApp
+              <Button asChild size="lg" variant="outline" className="rounded-full px-8 h-12 text-base border-white/30 text-white hover:bg-white/10" data-testid="cta-whatsapp">
+                <a href={whatsappLink} target="_blank" rel="noreferrer">
+                  <MessageSquare className="w-5 h-5 mr-2" />
+                  WhatsApp
+                </a>
               </Button>
             </div>
           </div>
@@ -609,7 +619,7 @@ function ContatoSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Telefone</p>
-                  <p className="font-medium text-foreground">+55 11 99999-9999</p>
+                  <p className="font-medium text-foreground">+55 47 9704-2590</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
