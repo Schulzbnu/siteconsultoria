@@ -15,8 +15,7 @@ import {
   MapPin,
   Menu,
   X,
-  Lightbulb,
-  Clock
+  Lightbulb
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@assets/generated_images/professional_consulting_meeting_scene.png";
@@ -48,7 +47,6 @@ function Header() {
           <div className="hidden lg:flex items-center gap-8">
             <a href="#servicos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-servicos">Serviços</a>
             <a href="#como-funciona" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-como-funciona">Como Funciona</a>
-            <a href="#sobre" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-sobre">Sobre</a>
             <a href="#contato" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-contato">Contato</a>
           </div>
 
@@ -81,7 +79,6 @@ function Header() {
             <div className="flex flex-col gap-4">
               <a href="#servicos" className="text-sm font-medium py-2" data-testid="mobile-nav-servicos">Serviços</a>
               <a href="#como-funciona" className="text-sm font-medium py-2" data-testid="mobile-nav-como-funciona">Como Funciona</a>
-              <a href="#sobre" className="text-sm font-medium py-2" data-testid="mobile-nav-sobre">Sobre</a>
               <a href="#contato" className="text-sm font-medium py-2" data-testid="mobile-nav-contato">Contato</a>
               <Button className="rounded-full w-full mt-2" data-testid="mobile-cta-agendar">
                 Agendar conversa
@@ -545,83 +542,6 @@ function ParaQuemSection() {
   );
 }
 
-function SobreSection() {
-  return (
-    <section id="sobre" className="py-20 lg:py-28">
-      <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="aspect-square rounded-3xl overflow-hidden shadow-xl border border-border/50">
-              <img
-                src={heroImage}
-                alt="Equipe da Schulz Estratégia Digital em reunião de consultoria"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-            </div>
-            <div className="absolute -bottom-6 right-0 lg:-right-6 bg-white rounded-2xl p-6 shadow-lg border border-border/50">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-foreground">15+</p>
-                  <p className="text-sm text-muted-foreground">anos de experiência</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-          >
-            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              Sobre nós
-            </motion.span>
-            <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-              Consultoria digital que entrega resultados, não promessas
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-muted-foreground leading-relaxed mb-6">
-              A Schulz Estratégia Digital nasceu da experiência de profissionais que passaram por grandes empresas 
-              de tecnologia e consultoria. Sabemos que o mercado está cheio de "soluções milagrosas" 
-              e promessas vazias.
-            </motion.p>
-            <motion.p variants={fadeUp} className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Nossa abordagem é diferente: fazemos diagnóstico profundo, entregamos clareza 
-              sobre prioridades e criamos um plano executável. Não vendemos ferramentas, 
-              não executamos o operacional. Entregamos estratégia e direção.
-            </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-8">
-              <div>
-                <p className="text-3xl font-bold text-primary">15+</p>
-                <p className="text-sm text-muted-foreground">Anos de experiência</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">360°</p>
-                <p className="text-sm text-muted-foreground">Diagnóstico completo</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">90 dias</p>
-                <p className="text-sm text-muted-foreground">Plano de ação</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
 function CTASection() {
   return (
     <section className="py-20 lg:py-28">
@@ -790,7 +710,6 @@ function Footer() {
           <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
             <a href="#servicos" className="hover:text-foreground transition-colors">Serviços</a>
             <a href="#como-funciona" className="hover:text-foreground transition-colors">Como Funciona</a>
-            <a href="#sobre" className="hover:text-foreground transition-colors">Sobre</a>
             <a href="#contato" className="hover:text-foreground transition-colors">Contato</a>
           </div>
 
@@ -814,7 +733,6 @@ export default function Home() {
         <ComoFuncionaSection />
         <EntregaveisSection />
         <ParaQuemSection />
-        <SobreSection />
         <CTASection />
         <ContatoSection />
       </main>
