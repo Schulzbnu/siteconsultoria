@@ -50,6 +50,7 @@ function Header() {
           <div className="hidden lg:flex items-center gap-8">
             <a href="#servicos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-servicos">Serviços</a>
             <a href="#como-funciona" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-como-funciona">Como Funciona</a>
+            <a href="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-blog">Blog</a>
             <a href="#contato" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-contato">Contato</a>
           </div>
 
@@ -84,6 +85,7 @@ function Header() {
             <div className="flex flex-col gap-4">
               <a href="#servicos" className="text-sm font-medium py-2" data-testid="mobile-nav-servicos">Serviços</a>
               <a href="#como-funciona" className="text-sm font-medium py-2" data-testid="mobile-nav-como-funciona">Como Funciona</a>
+              <a href="/blog" className="text-sm font-medium py-2" data-testid="mobile-nav-blog">Blog</a>
               <a href="#contato" className="text-sm font-medium py-2" data-testid="mobile-nav-contato">Contato</a>
               <Button asChild className="rounded-full w-full mt-2" data-testid="mobile-cta-agendar">
                 <a href={whatsappLink} target="_blank" rel="noreferrer">
