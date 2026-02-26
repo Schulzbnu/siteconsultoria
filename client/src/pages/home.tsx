@@ -619,7 +619,7 @@ function ContatoSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">E-mail</p>
-                  <p className="font-medium text-foreground">contato@email.com.br</p>
+                  <p className="font-medium text-foreground">contato@schulzdigital.com.br</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -628,7 +628,7 @@ function ContatoSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Endereço</p>
-                  <p className="font-medium text-foreground">São Paulo, SP - Brasil</p>
+                  <p className="font-medium text-foreground">Blumenau, SC - Brasil</p>
                 </div>
               </div>
             </motion.div>
