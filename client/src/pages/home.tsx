@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { 
   ArrowRight, 
@@ -32,7 +32,11 @@ const stagger = {
 const whatsappMessage = "Olá, vim do site e gostaria de agendar uma conversa.";
 const whatsappLink = `https://wa.me/554797042590?text=${encodeURIComponent(whatsappMessage)}`;
 
-function Header() {
+type NavigationProps = {
+  linkPrefix?: string;
+};
+
+export function Header({ linkPrefix = "" }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -48,10 +52,10 @@ function Header() {
           </a>
 
           <div className="hidden lg:flex items-center gap-8">
-            <a href="#servicos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-servicos">Serviços</a>
-            <a href="#como-funciona" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-como-funciona">Como Funciona</a>
+            <a href={`${linkPrefix}#servicos`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-servicos">Serviços</a>
+            <a href={`${linkPrefix}#como-funciona`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-como-funciona">Como Funciona</a>
             <a href="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-blog">Blog</a>
-            <a href="#contato" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-contato">Contato</a>
+            <a href={`${linkPrefix}#contato`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-contato">Contato</a>
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
@@ -83,10 +87,10 @@ function Header() {
             className="lg:hidden py-4 border-t border-border"
           >
             <div className="flex flex-col gap-4">
-              <a href="#servicos" className="text-sm font-medium py-2" data-testid="mobile-nav-servicos">Serviços</a>
-              <a href="#como-funciona" className="text-sm font-medium py-2" data-testid="mobile-nav-como-funciona">Como Funciona</a>
+              <a href={`${linkPrefix}#servicos`} className="text-sm font-medium py-2" data-testid="mobile-nav-servicos">Serviços</a>
+              <a href={`${linkPrefix}#como-funciona`} className="text-sm font-medium py-2" data-testid="mobile-nav-como-funciona">Como Funciona</a>
               <a href="/blog" className="text-sm font-medium py-2" data-testid="mobile-nav-blog">Blog</a>
-              <a href="#contato" className="text-sm font-medium py-2" data-testid="mobile-nav-contato">Contato</a>
+              <a href={`${linkPrefix}#contato`} className="text-sm font-medium py-2" data-testid="mobile-nav-contato">Contato</a>
               <Button asChild className="rounded-full w-full mt-2" data-testid="mobile-cta-agendar">
                 <a href={whatsappLink} target="_blank" rel="noreferrer">
                   Agendar Conversa
@@ -272,7 +276,7 @@ function ServicosSection() {
   ];
 
   return (
-    <section id="servicos" className="py-20 lg:py-28">
+    <section id="servicos" className="scroll-mt-24 py-20 lg:py-28">
       <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
         <motion.div 
           initial="hidden"
@@ -355,7 +359,7 @@ function ComoFuncionaSection() {
   ];
 
   return (
-    <section id="como-funciona" className="py-20 lg:py-28 bg-foreground text-white">
+    <section id="como-funciona" className="scroll-mt-24 py-20 lg:py-28 bg-foreground text-white">
       <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
         <motion.div 
           initial="hidden"
@@ -585,7 +589,7 @@ function CTASection() {
 
 function ContatoSection() {
   return (
-    <section id="contato" className="py-20 lg:py-28 bg-muted/30">
+    <section id="contato" className="scroll-mt-24 py-20 lg:py-28 bg-muted/30">
       <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           <motion.div 
@@ -697,7 +701,7 @@ function ContatoSection() {
   );
 }
 
-function Footer() {
+export function Footer({ linkPrefix = "" }: NavigationProps) {
   return (
     <footer className="py-12 border-t border-border">
       <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
@@ -711,9 +715,9 @@ function Footer() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-            <a href="#servicos" className="hover:text-foreground transition-colors">Serviços</a>
-            <a href="#como-funciona" className="hover:text-foreground transition-colors">Como Funciona</a>
-            <a href="#contato" className="hover:text-foreground transition-colors">Contato</a>
+            <a href={`${linkPrefix}#servicos`} className="hover:text-foreground transition-colors">Serviços</a>
+            <a href={`${linkPrefix}#como-funciona`} className="hover:text-foreground transition-colors">Como Funciona</a>
+            <a href={`${linkPrefix}#contato`} className="hover:text-foreground transition-colors">Contato</a>
           </div>
 
           <p className="text-sm text-muted-foreground">
@@ -726,6 +730,26 @@ function Footer() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    const scrollToHash = () => {
+      const { hash } = window.location;
+      if (!hash) return;
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    const timer = window.setTimeout(scrollToHash, 0);
+    window.addEventListener("hashchange", scrollToHash);
+
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("hashchange", scrollToHash);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />

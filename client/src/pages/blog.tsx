@@ -1,3 +1,5 @@
+import { Footer, Header } from "@/pages/home";
+
 const posts = [
   {
     slug: "diagnostico-digital-2026",
@@ -21,63 +23,67 @@ const posts = [
 
 export default function Blog() {
   return (
-    <main className="min-h-screen bg-background py-16 lg:py-24">
-      <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
-        <header className="max-w-3xl mb-12 lg:mb-16">
-          <h1
-            className="text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-5"
-            data-testid="blog-title"
-          >
-            Blog da Schulz Estratégia Digital
-          </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Conteúdos sobre estratégia digital, processos e crescimento para ajudar
-            sua empresa a evoluir com decisões orientadas por dados.
-          </p>
-        </header>
-
-        <section aria-label="Lista de artigos" className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {posts.map((post, index) => (
-            <article
-              key={post.slug}
-              id={post.slug}
-              className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm"
-              data-testid={`blog-post-card-${index + 1}`}
+    <div className="min-h-screen bg-background">
+      <Header linkPrefix="/" />
+      <main className="py-24 lg:py-32">
+        <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
+          <header className="max-w-3xl mb-12 lg:mb-16">
+            <h1
+              className="text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-5"
+              data-testid="blog-title"
             >
-              <h2 className="text-xl font-semibold text-card-foreground mb-3">{post.title}</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">{post.excerpt}</p>
+              Blog da Schulz Estratégia Digital
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Conteúdos sobre estratégia digital, processos e crescimento para ajudar
+              sua empresa a evoluir com decisões orientadas por dados.
+            </p>
+          </header>
+
+          <section aria-label="Lista de artigos" className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {posts.map((post, index) => (
+              <article
+                key={post.slug}
+                id={post.slug}
+                className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm"
+                data-testid={`blog-post-card-${index + 1}`}
+              >
+                <h2 className="text-xl font-semibold text-card-foreground mb-3">{post.title}</h2>
+                <p className="text-muted-foreground leading-relaxed mb-6">{post.excerpt}</p>
+                <a
+                  href={`/blog#${post.slug}`}
+                  className="text-primary font-medium hover:underline underline-offset-4"
+                >
+                  Ler artigo completo
+                </a>
+              </article>
+            ))}
+          </section>
+
+          <section className="mt-14 lg:mt-18 rounded-2xl border border-border/60 bg-muted/30 p-6 lg:p-8">
+            <h2 className="text-2xl font-semibold text-foreground mb-3">Próximos passos</h2>
+            <p className="text-muted-foreground mb-5">
+              Quer sair do conteúdo para a prática? Conheça os nossos serviços ou
+              entre em contato para conversar sobre o cenário da sua empresa.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
               <a
-                href={`/blog#${post.slug}`}
+                href="/#servicos"
                 className="text-primary font-medium hover:underline underline-offset-4"
               >
-                Ler artigo completo
+                Ver serviços
               </a>
-            </article>
-          ))}
-        </section>
-
-        <section className="mt-14 lg:mt-18 rounded-2xl border border-border/60 bg-muted/30 p-6 lg:p-8">
-          <h2 className="text-2xl font-semibold text-foreground mb-3">Próximos passos</h2>
-          <p className="text-muted-foreground mb-5">
-            Quer sair do conteúdo para a prática? Conheça os nossos serviços ou
-            entre em contato para conversar sobre o cenário da sua empresa.
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="/#servicos"
-              className="text-primary font-medium hover:underline underline-offset-4"
-            >
-              Ver serviços
-            </a>
-            <a
-              href="/#contato"
-              className="text-primary font-medium hover:underline underline-offset-4"
-            >
-              Falar com a consultoria
-            </a>
-          </div>
-        </section>
-      </div>
-    </main>
+              <a
+                href="/#contato"
+                className="text-primary font-medium hover:underline underline-offset-4"
+              >
+                Falar com a consultoria
+              </a>
+            </div>
+          </section>
+        </div>
+      </main>
+      <Footer linkPrefix="/" />
+    </div>
   );
 }
