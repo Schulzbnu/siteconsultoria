@@ -40,13 +40,14 @@ export default function Blog() {
           {posts.map((post, index) => (
             <article
               key={post.slug}
+              id={post.slug}
               className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm"
               data-testid={`blog-post-card-${index + 1}`}
             >
               <h2 className="text-xl font-semibold text-card-foreground mb-3">{post.title}</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">{post.excerpt}</p>
               <a
-                href={`/blog/${post.slug}`}
+                href={`/blog#${post.slug}`}
                 className="text-primary font-medium hover:underline underline-offset-4"
               >
                 Ler artigo completo
