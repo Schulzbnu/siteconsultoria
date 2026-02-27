@@ -1,25 +1,5 @@
 import { Footer, Header } from "@/pages/home";
-
-const posts = [
-  {
-    slug: "diagnostico-digital-2026",
-    title: "Como fazer um diagnóstico digital eficiente em 2026",
-    excerpt:
-      "Um passo a passo prático para mapear presença digital, tecnologia e gargalos operacionais antes de investir em novas ações.",
-  },
-  {
-    slug: "kpis-consultoria-estrategica",
-    title: "5 KPIs para medir o sucesso da estratégia digital",
-    excerpt:
-      "Descubra quais indicadores acompanhar para tomar decisões com mais segurança e alinhar marketing, vendas e operação.",
-  },
-  {
-    slug: "processos-escalaveis",
-    title: "Processos escaláveis: onde começar na sua empresa",
-    excerpt:
-      "Estruture rotinas e responsabilidades para reduzir retrabalho e aumentar a eficiência do time sem perder qualidade.",
-  },
-];
+import { blogPosts } from "@/pages/artigos";
 
 export default function Blog() {
   return (
@@ -41,7 +21,7 @@ export default function Blog() {
           </header>
 
           <section aria-label="Lista de artigos" className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {posts.map((post, index) => (
+            {blogPosts.map((post, index) => (
               <article
                 key={post.slug}
                 id={post.slug}
@@ -51,7 +31,7 @@ export default function Blog() {
                 <h2 className="text-xl font-semibold text-card-foreground mb-3">{post.title}</h2>
                 <p className="text-muted-foreground leading-relaxed mb-6">{post.excerpt}</p>
                 <a
-                  href={`/blog#${post.slug}`}
+                  href={`/blog/${post.slug}`}
                   className="text-primary font-medium hover:underline underline-offset-4"
                 >
                   Ler artigo completo
