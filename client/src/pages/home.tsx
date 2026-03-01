@@ -644,7 +644,7 @@ function ContatoSection() {
                   <Instagram className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Instagram</p>
+                  <p className="text-sm text-muted-foreground">Instragram</p>
                   <a
                     href={instagramLink}
                     target="_blank"
@@ -652,7 +652,7 @@ function ContatoSection() {
                     className="font-medium text-foreground hover:text-primary transition-colors"
                     data-testid="contato-instagram-link"
                   >
-                    Instagram
+                    @schulz.digital
                   </a>
                 </div>
               </div>
