@@ -119,9 +119,7 @@ function AmazonRestructuringArticle() {
       </section>
 
       <footer className="pt-4 border-t border-border/60">
-        <h3 className="text-xl font-semibold text-foreground mb-2">
-          Quer descobrir exatamente onde está o gargalo que está limitando seu crescimento?
-        </h3>
+        <p>Quer descobrir exatamente onde está o gargalo que está limitando seu crescimento?</p>
         <p>
           <strong>📲 Fale conosco no WhatsApp e solicite o seu Diagnóstico 360.</strong>
         </p>
