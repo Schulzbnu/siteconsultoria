@@ -10,6 +10,7 @@ import {
   Zap,
   Shield,
   MessageSquare,
+  Instagram,
   Phone,
   Mail,
   MapPin,
@@ -31,6 +32,7 @@ const stagger = {
 
 const whatsappMessage = "Olá, vim do site e gostaria de agendar uma conversa.";
 const whatsappLink = `https://wa.me/554797042590?text=${encodeURIComponent(whatsappMessage)}`;
+const instagramLink = "https://instagram.com/schulz.digital";
 
 type NavigationProps = {
   linkPrefix?: string;
@@ -637,6 +639,23 @@ function ContatoSection() {
                   <p className="font-medium text-foreground">Blumenau, SC - Brasil</p>
                 </div>
               </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Instagram className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Instragram</p>
+                  <a
+                    href={instagramLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-foreground hover:text-primary transition-colors"
+                    data-testid="contato-instagram-link"
+                  >
+                    @schulz.digital
+                  </a>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -718,6 +737,15 @@ export function Footer({ linkPrefix = "" }: NavigationProps) {
             <a href={`${linkPrefix}#servicos`} className="hover:text-foreground transition-colors">Serviços</a>
             <a href={`${linkPrefix}#como-funciona`} className="hover:text-foreground transition-colors">Como Funciona</a>
             <a href={`${linkPrefix}#contato`} className="hover:text-foreground transition-colors">Contato</a>
+            <a
+              href={instagramLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
+            >
+              <Instagram className="w-4 h-4" />
+              Instagram
+            </a>
           </div>
 
           <p className="text-sm text-muted-foreground">
