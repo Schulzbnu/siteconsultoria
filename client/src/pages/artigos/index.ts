@@ -8,6 +8,14 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "reestruturacao-amazon-transformacao-digital-estrategica",
+    title: "O que a reestruturação da Amazon nos ensina sobre transformação digital estratégica",
+    excerpt:
+      "A reestruturação da Amazon mostra por que transformação digital real começa com simplificação organizacional, não apenas com novas ferramentas.",
+    publishedAt: "1 de março de 2026",
+    readingTime: "7 min",
+  },
+  {
     slug: "diagnostico-360-guia-completo",
     title: "Diagnóstico 360: O Guia Completo para Transformar sua Presença Digital",
     excerpt:
