@@ -61,16 +61,6 @@ export function Header({ linkPrefix = "" }: NavigationProps) {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href={instagramLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              data-testid="header-instagram-link"
-            >
-              <Instagram className="w-4 h-4" />
-              <span>@schulz.digital</span>
-            </a>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Phone className="w-4 h-4" />
               <span>+55 47 9704-2590</span>
@@ -103,16 +93,6 @@ export function Header({ linkPrefix = "" }: NavigationProps) {
               <a href={`${linkPrefix}#como-funciona`} className="text-sm font-medium py-2" data-testid="mobile-nav-como-funciona">Como Funciona</a>
               <a href="/blog" className="text-sm font-medium py-2" data-testid="mobile-nav-blog">Blog</a>
               <a href={`${linkPrefix}#contato`} className="text-sm font-medium py-2" data-testid="mobile-nav-contato">Contato</a>
-              <a
-                href={instagramLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium py-2"
-                data-testid="mobile-instagram-link"
-              >
-                <Instagram className="w-4 h-4" />
-                @schulz.digital
-              </a>
               <Button asChild className="rounded-full w-full mt-2" data-testid="mobile-cta-agendar">
                 <a href={whatsappLink} target="_blank" rel="noreferrer">
                   Agendar Conversa
@@ -664,7 +644,7 @@ function ContatoSection() {
                   <Instagram className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Instagram oficial da Schulz</p>
+                  <p className="text-sm text-muted-foreground">Instagram</p>
                   <a
                     href={instagramLink}
                     target="_blank"
@@ -672,7 +652,7 @@ function ContatoSection() {
                     className="font-medium text-foreground hover:text-primary transition-colors"
                     data-testid="contato-instagram-link"
                   >
-                    @schulz.digital
+                    Instagram
                   </a>
                 </div>
               </div>
@@ -764,7 +744,7 @@ export function Footer({ linkPrefix = "" }: NavigationProps) {
               className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
             >
               <Instagram className="w-4 h-4" />
-              Instagram oficial da Schulz
+              Instagram
             </a>
           </div>
 
