@@ -11,7 +11,6 @@ import {
   Shield,
   MessageSquare,
   Instagram,
-  Phone,
   Mail,
   MapPin,
   Menu,
@@ -33,6 +32,14 @@ const stagger = {
 const whatsappMessage = "Olá, vim do site e gostaria de agendar uma conversa.";
 const whatsappLink = `https://wa.me/554797042590?text=${encodeURIComponent(whatsappMessage)}`;
 const instagramLink = "https://instagram.com/schulz.digital";
+
+function WhatsappIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.45 3.44 1.31 4.94L2 22l5.39-1.47a9.84 9.84 0 0 0 4.65 1.18h.01c5.44 0 9.84-4.4 9.84-9.84A9.84 9.84 0 0 0 12.04 2Zm0 17.97h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.2.87.86-3.12-.2-.32a8.1 8.1 0 0 1-1.25-4.25 8.23 8.23 0 1 1 8.23 8.13Zm4.52-6.11c-.25-.13-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.16.24-.64.8-.78.96-.14.16-.28.18-.52.06-.25-.13-1.03-.38-1.96-1.21-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.5.1-.1.24-.28.36-.42.12-.14.16-.24.25-.4.08-.16.04-.3-.02-.42-.06-.12-.56-1.35-.77-1.85-.2-.47-.4-.41-.56-.42h-.48c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.68 2.56 4.06 3.59.57.24 1.01.39 1.36.5.57.18 1.09.16 1.5.1.46-.07 1.47-.6 1.67-1.19.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.46-.28Z" />
+    </svg>
+  );
+}
 
 type NavigationProps = {
   linkPrefix?: string;
@@ -61,10 +68,16 @@ export function Header({ linkPrefix = "" }: NavigationProps) {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Phone className="w-4 h-4" />
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              data-testid="header-whatsapp-link"
+            >
+              <WhatsappIcon className="w-4 h-4 text-[#25D366]" />
               <span>+55 47 9704-2590</span>
-            </div>
+            </a>
             <Button asChild className="rounded-full px-6" data-testid="cta-agendar-header">
               <a href={whatsappLink} target="_blank" rel="noreferrer">
                 Agendar Conversa
@@ -612,15 +625,21 @@ function ContatoSection() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="space-y-6">
-              <div className="flex items-center gap-4">
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 hover:opacity-90 transition-opacity"
+                data-testid="contato-whatsapp-link"
+              >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-primary" />
+                  <WhatsappIcon className="w-6 h-6 text-[#25D366]" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Telefone</p>
+                  <p className="text-sm text-muted-foreground">WhatsApp</p>
                   <p className="font-medium text-foreground">+55 47 9704-2590</p>
                 </div>
-              </div>
+              </a>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Mail className="w-6 h-6 text-primary" />
