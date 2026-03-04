@@ -8,6 +8,14 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "ajustes-praticos-eficiencia-antes-de-investir-em-tecnologia",
+    title: "5 Ajustes Práticos que Aumentam a Eficiência Antes de Investir em Tecnologia",
+    excerpt:
+      "Antes de investir em sistemas, automação ou IA, cinco ajustes estruturais podem eliminar gargalos e acelerar a operação com impacto real.",
+    publishedAt: "4 de março de 2026",
+    readingTime: "6 min",
+  },
+  {
     slug: "reestruturacao-amazon-transformacao-digital-estrategica",
     title: "O que a reestruturação da Amazon nos ensina sobre transformação digital estratégica",
     excerpt:
