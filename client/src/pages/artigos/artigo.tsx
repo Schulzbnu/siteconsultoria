@@ -1,7 +1,7 @@
 import type React from "react";
 import { Link, useRoute } from "wouter";
 import { Footer, Header } from "@/pages/home";
-import { getPostBySlug } from "./index";
+import { blogPosts, getPostBySlug } from "./index";
 import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
 import { applySeoTags } from "@/lib/seo";
@@ -11,6 +11,64 @@ const postDateMap: Record<string, string> = {
   "reestruturacao-amazon-transformacao-digital-estrategica": "2026-03-01",
   "diagnostico-360-guia-completo": "2026-02-26",
 };
+
+const BLOG_BASE_URL = "https://schulzdigital.com.br";
+const STRUCTURED_DATA_SCRIPT_ID = "blog-post-structured-data";
+const ORGANIZATION_NAME = "Schulz Estratégia Digital";
+
+const postBySlug = new Map(blogPosts.map((post) => [post.slug, post]));
+
+function removePostStructuredData() {
+  document.getElementById(STRUCTURED_DATA_SCRIPT_ID)?.remove();
+}
+
+function injectPostStructuredData(slug: string) {
+  const post = postBySlug.get(slug);
+  const datePublished = postDateMap[slug];
+
+  if (!post || !datePublished) {
+    removePostStructuredData();
+    return;
+  }
+
+  const canonicalUrl = `${BLOG_BASE_URL}/blog/${slug}`;
+  const imageUrl = `${BLOG_BASE_URL}/logo.png`;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+    author: {
+      "@type": "Organization",
+      name: ORGANIZATION_NAME,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: ORGANIZATION_NAME,
+      logo: {
+        "@type": "ImageObject",
+        url: imageUrl,
+      },
+    },
+    image: imageUrl,
+  };
+
+  let script = document.getElementById(STRUCTURED_DATA_SCRIPT_ID) as HTMLScriptElement | null;
+  if (!script) {
+    script = document.createElement("script");
+    script.id = STRUCTURED_DATA_SCRIPT_ID;
+    script.type = "application/ld+json";
+    document.head.appendChild(script);
+  }
+
+  script.text = JSON.stringify(articleSchema);
+}
 
 function EfficiencyAdjustmentsArticle() {
   return (
@@ -403,6 +461,12 @@ export default function Artigo() {
       canonicalPath: `/blog/${post.slug}`,
       type: "article",
     });
+
+    injectPostStructuredData(post.slug);
+
+    return () => {
+      removePostStructuredData();
+    };
   }, [post.excerpt, post.slug, post.title]);
 
   return (
