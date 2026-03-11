@@ -1,7 +1,7 @@
 import type React from "react";
 import { Link, useRoute } from "wouter";
 import { Footer, Header } from "@/pages/home";
-import { getPostBySlug } from "./index";
+import { blogPosts, getPostBySlug } from "./index";
 import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
 import { applySeoTags } from "@/lib/seo";
@@ -397,6 +397,12 @@ export default function Artigo() {
       canonicalPath: `/blog/${post.slug}`,
       type: "article",
     });
+
+    injectPostStructuredData(post.slug);
+
+    return () => {
+      removePostStructuredData();
+    };
   }, [post.excerpt, post.slug, post.title]);
 
   return (

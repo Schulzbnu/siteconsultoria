@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@assets/generated_images/professional_consulting_meeting_scene.png";
+import { applySeoTags } from "@/lib/seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -777,6 +778,16 @@ export function Footer({ linkPrefix = "" }: NavigationProps) {
 }
 
 export default function Home() {
+  useEffect(() => {
+    applySeoTags({
+      title: "Schulz Estratégia Digital | Consultoria em Estratégia Digital",
+      description:
+        "Consultoria em estratégia digital para alinhar processos, tecnologia e operação com foco em crescimento sustentável e decisões orientadas por dados.",
+      canonicalPath: "/",
+      type: "website",
+    });
+  }, []);
+
   useEffect(() => {
     const scrollToHash = () => {
       const { hash } = window.location;
