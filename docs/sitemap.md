@@ -4,7 +4,7 @@ Este documento define como manter o `client/public/sitemap.xml` atualizado para 
 
 ## Entradas atuais
 
-- Home: `https://schulzdigital.com.br/`
+- Home: `https://schulzdigital.com.br`
 - Listagem do blog: `https://schulzdigital.com.br/blog`
 
 ## Padrão para posts individuais
