@@ -3,6 +3,7 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   publishedAt: string;
+  lastModified: string;
   readingTime: string;
 };
 
@@ -13,6 +14,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Antes de investir em sistemas, automação ou IA, cinco ajustes estruturais podem eliminar gargalos e acelerar a operação com impacto real.",
     publishedAt: "4 de março de 2026",
+    lastModified: "2026-03-04",
     readingTime: "6 min",
   },
   {
@@ -21,6 +23,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A reestruturação da Amazon mostra por que transformação digital real começa com simplificação organizacional, não apenas com novas ferramentas.",
     publishedAt: "1 de março de 2026",
+    lastModified: "2026-03-01",
     readingTime: "7 min",
   },
   {
@@ -29,6 +32,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Descubra o que é o Diagnóstico 360, por que ele é essencial para sua empresa e como ele pode ajudar a identificar gaps e oportunidades de melhoria.",
     publishedAt: "26 de fevereiro de 2026",
+    lastModified: "2026-02-26",
     readingTime: "8 min",
   },
 ];

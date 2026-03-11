@@ -6,12 +6,6 @@ import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
 import { applySeoTags } from "@/lib/seo";
 
-const postDateMap: Record<string, string> = {
-  "ajustes-praticos-eficiencia-antes-de-investir-em-tecnologia": "2026-03-04",
-  "reestruturacao-amazon-transformacao-digital-estrategica": "2026-03-01",
-  "diagnostico-360-guia-completo": "2026-02-26",
-};
-
 function EfficiencyAdjustmentsArticle() {
   return (
     <>
@@ -415,7 +409,7 @@ export default function Artigo() {
               {post.title}
             </h1>
             <p className="text-sm text-muted-foreground">
-              Publicado em <time dateTime={postDateMap[post.slug] ?? ""}>{post.publishedAt}</time>
+              Publicado em <time dateTime={post.lastModified}>{post.publishedAt}</time>
             </p>
           </header>
 

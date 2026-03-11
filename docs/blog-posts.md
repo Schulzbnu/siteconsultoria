@@ -18,6 +18,6 @@ Para manter consistência entre posts, o bloco final de CTA deve seguir exatamen
 ## Regras rápidas para novos posts
 
 1. Manter o CTA final com dois parágrafos (`<p>`) como acima (sem trocar o primeiro por `<h3>`).
-2. Garantir que o post tenha `slug`, `title`, `excerpt`, `publishedAt` e `readingTime` em `client/src/pages/artigos/index.ts`.
+2. Garantir que o post tenha `slug`, `title`, `excerpt`, `publishedAt`, `lastModified` e `readingTime` em `client/src/pages/artigos/index.ts`.
 3. Incluir o conteúdo do artigo em `articleContentBySlug` no arquivo `client/src/pages/artigos/artigo.tsx`.
-4. Atualizar `client/public/sitemap.xml` com a nova URL do artigo.
+4. Preencher `lastModified` em `client/src/pages/artigos/index.ts` para que o sitemap seja gerado automaticamente.

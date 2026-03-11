@@ -2,36 +2,35 @@
 
 Este documento define como manter o `client/public/sitemap.xml` atualizado para páginas de blog e demais URLs indexáveis.
 
-## Entradas atuais
+## Geração automática (fonte única)
 
-- Home: `https://schulzdigital.com.br`
-- Listagem do blog: `https://schulzdigital.com.br/blog`
+O sitemap agora é gerado automaticamente pelo script `script/generate-sitemap.ts`, usando como fonte única o array `blogPosts` em `client/src/pages/artigos/index.ts`.
 
-## Padrão para posts individuais
+- Base canônica: `https://schulzdigital.com.br`
+- Entradas fixas:
+  - Home: `https://schulzdigital.com.br`
+  - Listagem do blog: `https://schulzdigital.com.br/blog`
+- Entradas dinâmicas:
+  - Uma URL por artigo (`/blog/:slug`)
+  - `lastmod` baseado em `lastModified` de cada post
 
-Quando houver páginas de artigo, adicionar uma entrada `<url>` por post seguindo o padrão:
+## Fluxo de build/deploy
 
-```xml
-<url>
-  <loc>https://schulzdigital.com.br/blog/slug-do-artigo</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-</url>
+O script de build (`script/build.ts`) executa a geração do sitemap antes do build do client, evitando divergência entre conteúdo publicado e `sitemap.xml`.
+
+## Comandos úteis
+
+```bash
+npm run sitemap:generate
+npm run build
 ```
 
-> Ajuste `changefreq` e `priority` conforme relevância e frequência real de atualização do conteúdo.
+## Checklist de novos posts
 
-## Checklist de atualização
-
-1. Abrir `client/public/sitemap.xml`.
-2. Garantir que cada página canônica tenha um único bloco `<url>`.
-3. Incluir novas URLs no formato completo (`https://...`).
-4. Definir `changefreq` e `priority` coerentes por tipo de página.
-5. Validar o XML para garantir:
-   - Estrutura única de `<urlset>`;
-   - Presença de `<loc>` em todos os blocos `<url>`;
-   - Ausência de URLs duplicadas.
-6. Publicar a alteração junto com o deploy.
+1. Adicionar/atualizar metadados do post em `client/src/pages/artigos/index.ts`.
+2. Preencher `lastModified` no formato `YYYY-MM-DD`.
+3. Rodar `npm run sitemap:generate` (ou apenas `npm run build`).
+4. Confirmar que o novo artigo entrou em `client/public/sitemap.xml` com `lastmod`.
 
 ## Checklist complementar de indexação (SPA)
 
