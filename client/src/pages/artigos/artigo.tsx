@@ -3,6 +3,8 @@ import { Link, useRoute } from "wouter";
 import { Footer, Header } from "@/pages/home";
 import { getPostBySlug } from "./index";
 import NotFound from "@/pages/not-found";
+import { useEffect } from "react";
+import { applySeoTags } from "@/lib/seo";
 
 const postDateMap: Record<string, string> = {
   "ajustes-praticos-eficiencia-antes-de-investir-em-tecnologia": "2026-03-04",
@@ -393,6 +395,15 @@ export default function Artigo() {
   if (!articleContent) {
     return <NotFound />;
   }
+
+  useEffect(() => {
+    applySeoTags({
+      title: `${post.title} | Blog Schulz Estratégia Digital`,
+      description: post.excerpt,
+      canonicalPath: `/blog/${post.slug}`,
+      type: "article",
+    });
+  }, [post.excerpt, post.slug, post.title]);
 
   return (
     <div className="min-h-screen bg-background">

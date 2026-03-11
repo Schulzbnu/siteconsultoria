@@ -1,7 +1,19 @@
 import { Footer, Header } from "@/pages/home";
 import { blogPosts } from "@/pages/artigos";
+import { useEffect } from "react";
+import { applySeoTags } from "@/lib/seo";
 
 export default function Blog() {
+  useEffect(() => {
+    applySeoTags({
+      title: "Blog | Schulz Estratégia Digital",
+      description:
+        "Artigos sobre estratégia digital, eficiência operacional e decisões orientadas por dados para acelerar o crescimento empresarial.",
+      canonicalPath: "/blog",
+      type: "website",
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header linkPrefix="/" />

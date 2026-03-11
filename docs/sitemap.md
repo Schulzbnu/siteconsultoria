@@ -32,3 +32,13 @@ Quando houver páginas de artigo, adicionar uma entrada `<url>` por post seguind
    - Presença de `<loc>` em todos os blocos `<url>`;
    - Ausência de URLs duplicadas.
 6. Publicar a alteração junto com o deploy.
+
+## Checklist complementar de indexação (SPA)
+
+Além do sitemap, manter estas configurações para facilitar a indexação de páginas do blog:
+
+1. Garantir `<meta name="robots" content="index, follow">` no HTML base (`client/index.html`).
+2. Garantir `<link rel="canonical">` para cada rota canônica (home, listagem do blog e posts).
+3. Definir metadados dinâmicos de título e descrição por página no cliente (`client/src/lib/seo.ts`).
+4. Em cada artigo, usar URL única e estável com `slug` sem alterações após publicação.
+5. Após deploy de novos posts, solicitar reindexação no Google Search Console.
