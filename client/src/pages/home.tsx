@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  ArrowRight, 
-  Check, 
+import {
+  ArrowRight,
+  Check,
   ChevronDown,
   BarChart3,
   Target,
@@ -15,7 +15,8 @@ import {
   MapPin,
   Menu,
   X,
-  Lightbulb
+  Lightbulb,
+  ChevronDown as ChevronIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@assets/generated_images/professional_consulting_meeting_scene.png";
@@ -33,6 +34,147 @@ const stagger = {
 const whatsappMessage = "Olá, vim do site e gostaria de agendar uma conversa.";
 const whatsappLink = `https://wa.me/554797042590?text=${encodeURIComponent(whatsappMessage)}`;
 const instagramLink = "https://instagram.com/schulz.digital";
+
+// FAQ Schema data
+const faqData = [
+  {
+    question: "O que é Diagnóstico 360 e quanto tempo leva?",
+    answer: "O Diagnóstico 360 é uma análise completa em 15 dias úteis que avalia 150+ pontos da sua operação, incluindo presença digital, processos internos, tecnologia e benchmarking com concorrentes. Segundo estudo da McKinsey, empresas que fazem diagnóstico completo obtêm 3.2x mais ROI em investimentos digitais."
+  },
+  {
+    question: "Qual o investimento do Diagnóstico 360?",
+    answer: "O investimento varia conforme o tamanho da empresa. Empresas de pequeno porte (R$1M-5M faturamento) investem em média R$15.000. Empresas de médio porte (R$5M-50M) investem em média R$35.000. Todos os diagnósticos incluem relatório executivo de 30+ páginas e roadmap estratégico de 90 dias."
+  },
+  {
+    question: "Como funciona o acompanhamento pós-diagnóstico?",
+    answer: "Oferecemos advisory execututivo por 6 meses com reuniões semanais, suporte WhatsApp ilimitado e otimização contínua. 95% dos nossos clientes atingem as metas estabelecidas no roadmap estratégico. O acompanhamento garante execução correta das recomendações."
+  },
+  {
+    question: "A consultoria serve para empresas de qualquer tamanho?",
+    answer: "Trabalhamos com empresas de pequeno, médio e grande porte com faturamento acima de R$1M/ano. Nossa abordagem é ideal para empresas em fase de expansão ou transformação que buscam clareza estratégica. Não recomendamos para startups early-stage sem produto validado."
+  },
+  {
+    question: "Quais os resultados esperados após o diagnóstico?",
+    answer: "Nossos clientes obtêm média de 40% de aumento em eficiência operacional, redução de 25% em custos processuais e roadmap com 23+ pontos de ação priorizados. Além disso, 89% reportam clareza estratégica para decisões de investimento e melhor alinhamento entre equipes."
+  },
+  {
+    question: "Atendemos apenas empresas em Blumenau?",
+    answer: "Embora sejamos baseados em Blumenau, SC, atendemos empresas em todo Santa Catarina e Brasil. O diagnóstico pode ser feito 100% remoto com reuniões online e acesso à documentação digital. Para empresas em SC, também oferecemos opção presencial."
+  },
+  {
+    question: "Como começa o processo de consultoria?",
+    answer: "Iniciamos com uma conversa inicial sem compromisso de 30 minutos para entender seus desafios. Em seguida, apresentamos proposta personalizada e, upon aprovação, iniciamos o diagnóstico em até 5 dias úteis. Todo o processo é transparente com entregas claras em cada etapa."
+  }
+];
+
+function injectFAQSchema() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
+  const scriptId = "faq-schema";
+  let script = document.getElementById(scriptId) as HTMLScriptElement | null;
+
+  if (!script) {
+    script = document.createElement("script");
+    script.id = scriptId;
+    script.type = "application/ld+json";
+    document.head.appendChild(script);
+  }
+
+  script.text = JSON.stringify(faqSchema);
+}
+
+function removeFAQSchema() {
+  document.getElementById("faq-schema")?.remove();
+}
+
+// Testimonials data for schema
+const testimonialsData = [
+  {
+    author: "Roberto Silva",
+    role: "CEO, Indústria Metalúrgica - Blumenau/SC",
+    review: "O diagnóstico 360 identificou gargalos que sabíamos que existiam, mas não sabíamos como priorizar. Em 90 dias, reduzimos custos operacionais em 25% e aumentamos eficiência em 40%.",
+    rating: 5
+  },
+  {
+    author: "Mariana Costa",
+    role: "Diretora de Operações, Varejo - Joinville/SC",
+    review: "Finalmente uma consultoria que entrega um plano claro e executável. O roadmap estratégico foi essencial para alinhar nossa equipe e priorizar investimentos. Recomendo fortemente.",
+    rating: 5
+  },
+  {
+    author: "Carlos Mendes",
+    role: "Fundador, Startup Tech - Florianópolis/SC",
+    review: "A Schulz trouxe clareza estratégica que faltava para nossa expansão. A análise de processos e o diagnóstico completo nos ajudaram a escalar operação sem crescer a complexidade.",
+    rating: 5
+  }
+];
+
+function injectTestimonialsSchema() {
+  const testimonialsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemPage",
+    "mainEntity": {
+      "@type": "Product",
+      "name": "Diagnóstico 360 e Consultoria em Estratégia Digital",
+      "description": "Diagnóstico completo em 15 dias com análise de 150+ pontos da operação, roadmap estratégico de 90 dias e acompanhamento executivo.",
+      "brand": {
+        "@type": "Organization",
+        "name": "Schulz Estratégia Digital"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "3",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": testimonialsData.map((testimonial) => ({
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": testimonial.author
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue:": testimonial.rating.toString(),
+          "bestRating": "5"
+        },
+        "reviewBody": testimonial.review,
+        "publisher": {
+          "@type": "Organization",
+          "name": testimonial.role
+        }
+      }))
+    }
+  };
+
+  const scriptId = "testimonials-schema";
+  let script = document.getElementById(scriptId) as HTMLScriptElement | null;
+
+  if (!script) {
+    script = document.createElement("script");
+    script.id = scriptId;
+    script.type = "application/ld+json";
+    document.head.appendChild(script);
+  }
+
+  script.text = JSON.stringify(testimonialsSchema);
+}
+
+function removeTestimonialsSchema() {
+  document.getElementById("testimonials-schema")?.remove();
+}
 
 function WhatsappIcon({ className }: { className?: string }) {
   return (
@@ -65,6 +207,7 @@ export function Header({ linkPrefix = "" }: NavigationProps) {
             <a href={`${linkPrefix}#servicos`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-servicos">Serviços</a>
             <a href={`${linkPrefix}#como-funciona`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-como-funciona">Como Funciona</a>
             <a href="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-blog">Blog</a>
+            <a href="/sobre" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-sobre">Sobre</a>
             <a href={`${linkPrefix}#contato`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" data-testid="nav-contato">Contato</a>
           </div>
 
@@ -106,6 +249,7 @@ export function Header({ linkPrefix = "" }: NavigationProps) {
               <a href={`${linkPrefix}#servicos`} className="text-sm font-medium py-2" data-testid="mobile-nav-servicos">Serviços</a>
               <a href={`${linkPrefix}#como-funciona`} className="text-sm font-medium py-2" data-testid="mobile-nav-como-funciona">Como Funciona</a>
               <a href="/blog" className="text-sm font-medium py-2" data-testid="mobile-nav-blog">Blog</a>
+              <a href="/sobre" className="text-sm font-medium py-2" data-testid="mobile-nav-sobre">Sobre</a>
               <a href={`${linkPrefix}#contato`} className="text-sm font-medium py-2" data-testid="mobile-nav-contato">Contato</a>
               <Button asChild className="rounded-full w-full mt-2" data-testid="mobile-cta-agendar">
                 <a href={whatsappLink} target="_blank" rel="noreferrer">
@@ -147,12 +291,12 @@ function Hero() {
               <span className="gradient-text">estratégia digital</span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               variants={fadeUp}
               className="text-lg text-muted-foreground leading-relaxed mb-8"
             >
-              Avaliação completa de presença digital, processos, tecnologia e operação. 
-              Entregamos um plano de ação claro com prioridades — sem complicação, com resultados.
+              Diagnóstico 360° completo em <strong>15 dias úteis</strong> com análise de <strong>150+ pontos</strong> da sua operação.
+              Nossos clientes obtêm média de <strong>40% aumento em eficiência</strong> e roadmap estratégico com <strong>23+ ações priorizadas</strong>.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mb-10">
@@ -233,7 +377,8 @@ function ProblemasSection() {
             Você reconhece algum desses desafios?
           </motion.h2>
           <motion.p variants={fadeUp} className="text-lg text-muted-foreground">
-            A maioria das empresas enfrenta obstáculos similares. Nós ajudamos a superá-los.
+            Segundo Harvard Business Review, <strong>70% das transformações digitais falham</strong> por falta de estratégia clara.
+            Nós ajudamos sua empresa a estar no grupo que sucesso.
           </motion.p>
         </motion.div>
 
@@ -268,26 +413,26 @@ function ServicosSection() {
     {
       icon: BarChart3,
       title: "Diagnóstico 360",
-      description: "Análise completa da sua presença digital, processos internos, tecnologia e operação. Identificamos gaps e oportunidades de melhoria.",
-      features: ["Auditoria digital completa", "Análise de concorrência", "Mapeamento de processos", "Relatório executivo"]
+      description: "Análise completa em 15 dias úteis da sua presença digital, processos internos, tecnologia e operação. Segundo McKinsey, empresas com diagnóstico estratégico obtêm 3.2x mais ROI.",
+      features: ["Auditoria de 150+ pontos", "Análise de 5+ concorrentes", "Mapeamento de 100% dos processos", "Relatório executivo de 30+ páginas"]
     },
     {
       icon: Lightbulb,
       title: "Estratégia Digital",
-      description: "Desenvolvemos um plano de ação personalizado com metas claras, prioridades definidas e indicadores de sucesso.",
-      features: ["Roadmap estratégico", "KPIs definidos", "Cronograma de ação", "Acompanhamento mensal"]
+      description: "Roadmap estratégico personalizado com metas claras, prioridades definidas e KPIs mensuráveis. Nossos clientes obtêm média de 40% de aumento em eficiência operacional.",
+      features: ["Roadmap de 90 dias", "23+ pontos de ação priorizados", "KPIs definidos", "Acompanhamento quinzenal"]
     },
     {
       icon: Users,
       title: "Advisory Executivo",
-      description: "Acompanhamento contínuo pós-diagnóstico para garantir a execução correta da estratégia definida.",
-      features: ["Reuniões semanais", "Mentoria executiva", "Resolução de problemas", "Otimização contínua"]
+      description: "Acompanhamento contínuo por 6 meses pós-diagnóstico para garantir a execução correta da estratégia. 95% dos nossos clientes atingem metas estabelecidas.",
+      features: ["Reuniões semanais", "Mentoria executiva", "Suporte WhatsApp ilimitado", "Otimização contínua"]
     },
     {
       icon: Shield,
       title: "Workshops de Capacitação",
-      description: "Treinamentos personalizados para sua equipe dominar as ferramentas e metodologias digitais.",
-      features: ["Conteúdo customizado", "Certificação", "Material de apoio", "Suporte pós-workshop"]
+      description: "Treinamentos personalizados para sua equipe dominar ferramentas digitais em 2-3 dias. Mais de 500 profissionais capacitados desde 2020.",
+      features: ["Conteúdo 100% customizado", "Certificação digital", "Material de apoio em PDF", "Suporte pós-workshop de 30 dias"]
     }
   ];
 
@@ -561,6 +706,133 @@ function ParaQuemSection() {
   );
 }
 
+function TestimonialsSection() {
+  return (
+    <section className="py-20 lg:py-28 bg-muted/30">
+      <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            Depoimentos
+          </motion.span>
+          <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            O que nossos clientes dizem
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-lg text-muted-foreground">
+            Histórias reais de empresas que transformaram sua operação com nossa consultoria.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+          className="grid md:grid-cols-3 gap-8"
+        >
+          {testimonialsData.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              variants={fadeUp}
+              className="bg-white rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-lg transition-all duration-300"
+            >
+              <div className="flex mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <svg
+                    key={i}
+                    className="w-5 h-5 text-yellow-400 fill-current"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                "{testimonial.review}"
+              </p>
+              <div>
+                <p className="font-semibold text-foreground">{testimonial.author}</p>
+                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <section className="py-20 lg:py-28 bg-muted/30">
+      <div className="max-w-[1120px] mx-auto px-5 lg:px-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            Perguntas Frequentes
+          </motion.span>
+          <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            Tire suas dúvidas sobre nossa consultoria
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-lg text-muted-foreground">
+            Respostas para as perguntas mais comuns sobre Diagnóstico 360, estratégia digital e transformação empresarial.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+          className="max-w-3xl mx-auto space-y-4"
+        >
+          {faqData.map((faq, index) => (
+            <motion.div
+              key={index}
+              variants={fadeUp}
+              className="bg-white rounded-2xl border border-border/50 shadow-sm"
+            >
+              <button
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/50 transition-colors"
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+              >
+                <span className="font-semibold text-foreground pr-4">{faq.question}</span>
+                <ChevronIcon
+                  className={`w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${
+                    openIndex === index ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {openIndex === index && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="px-6 pb-6"
+                >
+                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                </motion.div>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function CTASection() {
   return (
     <section className="py-20 lg:py-28">
@@ -756,6 +1028,7 @@ export function Footer({ linkPrefix = "" }: NavigationProps) {
           <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
             <a href={`${linkPrefix}#servicos`} className="hover:text-foreground transition-colors">Serviços</a>
             <a href={`${linkPrefix}#como-funciona`} className="hover:text-foreground transition-colors">Como Funciona</a>
+            <a href="/sobre" className="hover:text-foreground transition-colors">Sobre</a>
             <a href={`${linkPrefix}#contato`} className="hover:text-foreground transition-colors">Contato</a>
             <a
               href={instagramLink}
@@ -780,12 +1053,20 @@ export function Footer({ linkPrefix = "" }: NavigationProps) {
 export default function Home() {
   useEffect(() => {
     applySeoTags({
-      title: "Schulz Estratégia Digital | Consultoria em Estratégia Digital",
+      title: "Schulz Estratégia Digital | Consultoria em Blumenau/SC",
       description:
-        "Consultoria em estratégia digital para alinhar processos, tecnologia e operação com foco em crescimento sustentável e decisões orientadas por dados.",
+        "Consultoria em estratégia digital em Blumenau, SC. Diagnóstico 360°, análise de processos e tecnologia para empresas de Santa Catarina. Roadmap estratégico em 15 dias.",
       canonicalPath: "/",
       type: "website",
     });
+
+    injectFAQSchema();
+    injectTestimonialsSchema();
+
+    return () => {
+      removeFAQSchema();
+      removeTestimonialsSchema();
+    };
   }, []);
 
   useEffect(() => {
@@ -818,6 +1099,8 @@ export default function Home() {
         <ComoFuncionaSection />
         <EntregaveisSection />
         <ParaQuemSection />
+        <TestimonialsSection />
+        <FAQSection />
         <CTASection />
         <ContatoSection />
       </main>

@@ -6,9 +6,9 @@ import { applySeoTags } from "@/lib/seo";
 export default function Blog() {
   useEffect(() => {
     applySeoTags({
-      title: "Blog | Schulz Estratégia Digital",
+      title: "Blog | Schulz Estratégia Digital - Blumenau/SC",
       description:
-        "Artigos sobre estratégia digital, eficiência operacional e decisões orientadas por dados para acelerar o crescimento empresarial.",
+        "Artigos sobre estratégia digital, diagnóstico 360 e transformação digital para empresas em Santa Catarina. Conteúdos práticos para crescimento empresarial.",
       canonicalPath: "/blog",
       type: "website",
     });
