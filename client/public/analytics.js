@@ -1,11 +1,11 @@
 // Google Analytics 4 - Configuração para Schulz Estratégia Digital
-// Substitua 'G-XXXXXXXXXX' pelo seu Measurement ID do GA4
+// Measurement ID: V8VVXLFLXG
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
 gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');
+gtag('config', 'V8VVXLFLXG');
 
 // Rastreamento de conversões
 function trackContactFormSubmit() {
