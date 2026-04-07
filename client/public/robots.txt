@@ -1,3 +1,25 @@
+# Robots.txt - Schulz Estratégia Digital
+# Permitir todos os user agents
+
 User-agent: *
 Allow: /
+
+# Bloquear acesso a arquivos de configuração e desenvolvimento
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /src/
+Disallow: /package.json
+Disallow: /tsconfig.json
+
+# Sitemap
 Sitemap: https://schulzdigital.com.br/sitemap.xml
+
+# Informações adicionais para crawlers específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
