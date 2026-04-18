@@ -8,6 +8,14 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "como-tecnologia-muda-ritmo-decisoes-empresas",
+    title: "Como a tecnologia começa a mudar o ritmo de decisão dentro das empresas",
+    excerpt:
+      "Entenda como integração de sistemas, automação e centralização de dados aceleram decisões e aumentam a previsibilidade operacional.",
+    publishedAt: "18 de abril de 2026",
+    readingTime: "6 min",
+  },
+  {
     slug: "ajustes-praticos-eficiencia-antes-de-investir-em-tecnologia",
     title: "5 Ajustes Práticos que Aumentam a Eficiência Antes de Investir em Tecnologia",
     excerpt:
